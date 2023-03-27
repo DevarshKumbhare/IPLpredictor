@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* Cool infinite background scrolling animation.
+     * Twitter: @kootoopas
+     */
+    /* Exo thin font from Google. */
+    @import url(https://fonts.googleapis.com/css?family=Exo:100);
+    /* Background data (Original source: https://subtlepatterns.com/grid-me/) */
+    /* Animations */
+    @-webkit-keyframes bg-scrolling-reverse {
+      100% {
+        background-position: 50px 50px;
+      }
+    }
+    @-moz-keyframes bg-scrolling-reverse {
+      100% {
+        background-position: 50px 50px;
+      }
+    }
+    @-o-keyframes bg-scrolling-reverse {
+      100% {
+        background-position: 50px 50px;
+      }
+    }
+    @keyframes bg-scrolling-reverse {
+      100% {
+        background-position: 50px 50px;
+      }
+    }
+    @-webkit-keyframes bg-scrolling {
+      0% {
+        background-position: 50px 50px;
+      }
+    }
+    @-moz-keyframes bg-scrolling {
+      0% {
+        background-position: 50px 50px;
+      }
+    }
+    @-o-keyframes bg-scrolling {
+      0% {
+        background-position: 50px 50px;
+      }
+    }
+    @keyframes bg-scrolling {
+      0% {
+        background-position: 50px 50px;
+      }
+    }
+    /* Main styles */
+    body {
+      margin-top: 0;
+      color: #999;
+      font: 400 16px/1.5 exo, ubuntu, "segoe ui", helvetica, arial, sans-serif;
+      /* img size is 50x50 */
+      background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+      -webkit-animation: bg-scrolling-reverse 0.92s infinite;
+      /* Safari 4+ */
+      -moz-animation: bg-scrolling-reverse 0.92s infinite;
+      /* Fx 5+ */
+      -o-animation: bg-scrolling-reverse 0.92s infinite;
+      /* Opera 12+ */
+      animation: bg-scrolling-reverse 0.92s infinite;
+      /* IE 10+ */
+      -webkit-animation-timing-function: linear;
+      -moz-animation-timing-function: linear;
+      -o-animation-timing-function: linear;
+      animation-timing-function: linear;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    body::before {
+      content: "MATCH PREDICTION";
+      font-size: 6rem;
+      font-style: normal;
+      margin-left: 1.2em;
+    }
+        #submit:hover{
+          background-color: #424242;
+          color: aliceblue;
+          transition: 0.3s;
+        }
+        #submit{
+          height: 100%;
+          width: 20%;
+          font-size: 25px;
+          font-weight: 600;
+        }
+        .select{
+          height: 8vh;
+          display: flex;
+          justify-content: center;
+        }
+        .line3{
+          display: flex;
+          justify-content: space-around;
+        }
+        .city{
+          display: flex;
+          flex-direction: column;
+          width: 40%;
+        }
+        .wickets{
+          display: flex;
+          flex-direction: column;
+        }
+        .overs{
+          display: flex;
+          flex-direction: column;
+          margin-left: 20%;
+        }
+        .line2{
+          display: flex;
+          justify-content: space-around;
+          overflow-y: hidden;
+        }
+        .target{
+          display: flex;
+          flex-direction: column;
+          width: 45%;
+        }
+        .score{
+          display: flex;
+          flex-direction: column;
+          width: 45%;
+          align-items: flex-end;
+        }
+        .line1{
+          display: flex;
+        }
+        .batting{
+          display: flex;
+          flex-direction: column;
+          justify-content:center;
+          align-items:flex-end;
+          width: 45%;
+        }
+        #batting{
+          font-size: 20px;
+        }
+        #bowling{
+          font-size: 20px;
+        }
+        #city{
+          font-size: 20px;
+        }
+        .bowling{
+          display: flex;
+          flex-direction: column;
+          justify-content:baseline;
+          width: 45%;
+          margin-left: 10%;
+        }
+        body{
+          color: gray;
+          font-family:Arial, Helvetica, sans-serif;
+          font-weight: 400;
+          font-size: x-large;
+          width: 100%;
+        }
+        select{
+          width: 100%;
+          height: 40px;
+          padding: 5px;
+          border-radius: 10px;
+          font-family:Arial, Helvetica, sans-serif;
+          font-size: 40;
+        }
+        input{
+          width: 100%;
+          margin-top: 5em;
+          height: 40px;
+          padding: 5px;
+          border-radius: 15px;
+          font-family:Arial, Helvetica, sans-serif;
+          font-size: 60;
+        }
+        option{
+          font-size: 20px;
+        }
+        .msg{
+          text-align: center;
+        }
+        input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    .progress{
+      background: #959595;
+      width: 600px;
+      height: 10px;
+      border-radius: 5px;
+      margin-left: 18em;
+    }
+    .progress div{
+      height: 10px;
+      border-radius: 5px;
+      width: 0%;
+      background: red;
+    }
+    
+    .batting_progress{
+      background: #e91e63;
+      animation: batting_progress 1s linear forwards;
+    
+    }
+    @keyframes batting_progress {
+      100%{
+        width: {{message}}%;
+      }
+    }
+    .space{
+      display: flex;
+      justify-content: space-around;
+    }
+      </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prematch</title>
+</head>
+<body>
+    <form action="/prematch" method="post">
+        <label for="batting">Batting:</label>
+        <select id="batting" name="batting">
+            <option value="Mumbai Indians">MI</option>
+            <option value="Royal Challengers Bangalore">RCB</option>
+            <option value="Kolkata Knight Riders">KKR</option>
+            <option value="Delhi Capitals">DD</option>
+            <option value="Rajasthan Royals">RR</option>
+            <option value="Sunrisers Hyderabad">SRH</option>
+            <option value="Punjab Kings">PK</option>
+            <option value="Chennai Super Kings">CSK</option>
+        </select>
+        <br>
+        <label for="bowling">Bowling:</label>
+        <select id="bowling" name="bowling">
+            <option value="Mumbai Indians">MI</option>
+            <option value="Royal Challengers Bangalore">RCB</option>
+            <option value="Kolkata Knight Riders">KKR</option>
+            <option value="Delhi Capitals">DD</option>
+            <option value="Rajasthan Royals">RR</option>
+            <option value="Sunrisers Hyderabad">SRH</option>
+            <option value="Punjab Kings">PK</option>
+            <option value="Chennai Super Kings">CSK</option>
+        </select>
+        <br>
+        <label for="city">City:</label>
+        <select id="city" name="city">
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Mohali">Mohali</option>
+            <option value="Jaipur">Jaipur</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    <br>
+    {% if message %}
+    <div class="alert alert-success">
+      {{batting_team}}:{{ message }}%
+      {{bowling_team}}:{{ (100-message) }}%
+    </div>
+    {% endif %}
+    {% if error==1 %}
+    <div class="alert alert-success">
+      Error, Something isnt matching!
+    </div>
+    {% endif %}
+</body>
+</html>

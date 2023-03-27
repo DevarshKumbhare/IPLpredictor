@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    /* Cool infinite background scrolling animation.
+ * Twitter: @kootoopas
+ */
+/* Exo thin font from Google. */
+@import url(https://fonts.googleapis.com/css?family=Exo:100);
+/* Background data (Original source: https://subtlepatterns.com/grid-me/) */
+/* Animations */
+@-webkit-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-webkit-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+/* Main styles */
+body {
+  margin-top: 0;
+  color: #999;
+  font: 400 16px/1.5 exo, ubuntu, "segoe ui", helvetica, arial, sans-serif;
+  /* img size is 50x50 */
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+  -webkit-animation: bg-scrolling-reverse 0.92s infinite;
+  /* Safari 4+ */
+  -moz-animation: bg-scrolling-reverse 0.92s infinite;
+  /* Fx 5+ */
+  -o-animation: bg-scrolling-reverse 0.92s infinite;
+  /* Opera 12+ */
+  animation: bg-scrolling-reverse 0.92s infinite;
+  /* IE 10+ */
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -o-animation-timing-function: linear;
+  animation-timing-function: linear;
+  overflow-x: hidden;
+}
+body::before {
+  content: "2nd INNINGS SCORECARD";
+  font-size: 6rem;
+  font-style: normal;
+  margin-left: 1.2em;
+}
+    #submit:hover{
+      background-color: #424242;
+      color: aliceblue;
+      transition: 0.3s;
+    }
+    #submit{
+      height: 100%;
+      width: 20%;
+      font-size: 25px;
+      font-weight: 600;
+    }
+    .select{
+      height: 8vh;
+      display: flex;
+      justify-content: center;
+    }
+    .line3{
+      display: flex;
+      justify-content: space-around;
+    }
+    .city{
+      display: flex;
+      flex-direction: column;
+      width: 40%;
+    }
+    .wickets{
+      display: flex;
+      flex-direction: column;
+    }
+    .overs{
+      display: flex;
+      flex-direction: column;
+      margin-left: 20%;
+    }
+    .line2{
+      display: flex;
+      justify-content: space-around;
+      overflow-y: hidden;
+    }
+    .target{
+      display: flex;
+      flex-direction: column;
+      width: 45%;
+    }
+    .score{
+      display: flex;
+      flex-direction: column;
+      width: 45%;
+      align-items: flex-end;
+    }
+    .line1{
+      display: flex;
+    }
+    .batting{
+      display: flex;
+      flex-direction: column;
+      justify-content:center;
+      align-items:flex-end;
+      width: 45%;
+    }
+    #batting{
+      font-size: 20px;
+    }
+    #bowling{
+      font-size: 20px;
+    }
+    #city{
+      font-size: 20px;
+    }
+    .bowling{
+      display: flex;
+      flex-direction: column;
+      justify-content:baseline;
+      width: 45%;
+      margin-left: 10%;
+    }
+    body{
+      color: gray;
+      font-family:Arial, Helvetica, sans-serif;
+      font-weight: 400;
+      font-size: x-large;
+      width: 100%;
+    }
+    select{
+      width: 70%;
+      height: 40px;
+      padding: 5px;
+      border-radius: 10px;
+      font-family:Arial, Helvetica, sans-serif;
+      font-size: 40;
+    }
+    input{
+      width: 40%;
+      height: 20px;
+      padding: 5px;
+      border-radius: 10px;
+      font-family:Arial, Helvetica, sans-serif;
+      font-size: 40;
+    }
+    option{
+      font-size: 20px;
+    }
+    .msg{
+      text-align: center;
+    }
+    input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.progress{
+  background: #959595;
+  width: 600px;
+  height: 10px;
+  border-radius: 5px;
+  margin-left: 18em;
+}
+.progress div{
+  height: 10px;
+  border-radius: 5px;
+  width: 0%;
+  background: red;
+}
+
+.batting_progress{
+  background: #e91e63;
+  animation: batting_progress 1s linear forwards;
+
+}
+@keyframes batting_progress {
+  100%{
+    width: {{message}}%;
+  }
+}
+.space{
+  display: flex;
+  justify-content: space-around;
+}
+  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/inn2" method="post">
+      <div class="line1">
+      <div class="batting">
+        <label for="batting">Batting</label>
+        <select id="batting" name="batting">
+            <option value="Mumbai Indians">Mumbai Indians</option>
+            <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+            <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+            <option value="Delhi Capitals">Delhi Capitals</option>
+            <option value="Rajasthan Royals">Rajasthan Royals</option>
+            <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+            <option value="Kings XI Punjab">Punjab Kings</option>
+            <option value="Chennai Super Kings">Chennai Super Kings</option>
+        </select>
+      </div>
+      <div class="bowling">
+        <label for="bowling">Bowling</label>
+        <select id="bowling" name="bowling">
+            <option value="Mumbai Indians">Mumbai Indians</option>
+            <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+            <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+            <option value="Delhi Capitals">Delhi Capitals</option>
+            <option value="Rajasthan Royals">Rajasthan Royals</option>
+            <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+            <option value="Kings XI Punjab">Punjab Kings</option>
+            <option value="Chennai Super Kings">Chennai Super Kings</option>
+        </select>
+      </div>
+      </div>
+        <br>
+        <div class="line2">
+        <div class="score">
+        <label for="score">Current Score</label>
+        <input type="number" id="score" name="score">
+        </div>
+        <div class="target">
+          <label for="target">Target</label>
+          <input type="number" id="target" name="target">
+          </div>
+        </div>
+        <br>
+        <div class="line3">
+        <div class="overs">
+        <label for="overs">Overs</label>
+        <input type="number" id="overs" name="overs">
+        </div>
+        <div class="wickets">
+        <label for="wickets">wickets</label>
+        <input type="number" id="wickets" name="wickets">
+        </div>
+        <div class="city">
+        <label for="city">City</label>
+        <select id="city" name="city">
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Mohali">Mohali</option>
+            <option value="Jaipur">Jaipur</option>
+        </select>
+        </div>
+        </div>
+        <br>
+        <div class="select">
+        <input id="submit" type="submit" value="Submit">
+        </div>
+      </form>
+      <br>
+      <div class="msg">
+      {% if message %}
+      <div class="alert alert-success">
+        <div class="space">
+        {{batting_team}}:{{ message }}%
+        <h2></h2>
+        {{bowling_team}}:{{ (100-message) }}%
+        </div>
+        <div class="progress">
+        <div class="batting_progress"></div>
+        </div>
+      </div>
+      {% endif %}
+      {% if error==1 %}
+      <div class="alert alert-success">
+        Error, Something isnt matching!
+      </div>
+      {% endif %}
+      </div>
+</body>
+</html>
